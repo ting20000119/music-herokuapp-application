@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<head>
+    　<title>BTS</title>
+</head>
+<body>
+
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">發行日期</th>
+            <th scope="col">專輯名稱</th>
+            <th scope="col">歌名</th>
+            <th scope="col">連結</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for s in songs %}
+          <tr>
+            <td>{{s.date}}</td>
+            <td>{{s.album}}</td>
+            <td> {{s.song}}</td>
+            <td><a href="https://www.youtube.com/results?search_query=bts song {{s.song}}" target="_blank">點這</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+
+       
+</body>
+</html>
