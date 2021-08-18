@@ -4,7 +4,7 @@ from sqlalchemy import asc
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:je191919@127.0.0.1:3306/bts"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///bts.db"
 db = SQLAlchemy(app)
 
 
