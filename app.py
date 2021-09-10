@@ -16,14 +16,27 @@ class song(db.Model):
 
 songs = song.query.order_by(asc(song.date)).all()
 
-# for s in songs:
-#print(s.date, '', s.album, '', s.song)
+temp = 0
+index = 0
+year = []
+
+for s in songs:
+    if index == 0:
+        year.append(s.date.year)
+        temp = s.date.year
+        index = index + 1
+    else:
+        if temp != s.date.year:
+            year.append(s.date.year)
+            temp = s.date.year
+
+    # print(type(s.date.year))
 # print(s.song)
 
 
 @app.route('/')
 def index():
-    return render_template('home.html', songs=songs)
+    return render_template('home.html', songs=songs, year=year)
 
 
 if __name__ == '__main__':
