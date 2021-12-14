@@ -4,27 +4,39 @@
 <head>
     　<title>BTS</title>
 </head>
+
+<style>
+  td {
+    overflow: hidden;
+  }
+  td.nocollapse {
+    overflow: none;
+  }
+  
+  </style>
 <body>
 
     <table class="table table-dark">
-            {% for y in year %}
+          {% for y in year %}
+          <thead>
           <tr>
-            <th scope="col">{{y}}</th>
+            <td scope="col" id="show1" onclick="show1()">{{y}}</td>
           </tr>
           <tr>
-            <th scope="col">發行日期</th>
-            <th scope="col">專輯名稱</th>
-            <th scope="col">歌名</th>
-            <th scope="col">連結</th>
+            <th scope="col" >發行日期</th>
+            <th scope="col" >專輯名稱</th>
+            <th scope="col" >歌名</th>
+            <th scope="col" >連結</th>
           </tr>
+        </thead>
         <tbody>
             {% for s in songs %}
             {% if y == s.date.year %}
-          <tr>
-            <td>{{s.date}}</td>
-            <td>{{s.album}}</td>
-            <td>{{s.song}}</td>
-            <td><a href="https://www.youtube.com/results?search_query=bts song {{s.song}}" target="_blank">點這</a></td>
+          <tr id="hide1" style="display: none;">
+            <td >{{s.date}}</td>
+            <td >{{s.album}}</td>
+            <td >{{s.song}}</td>
+            <td ><a href="https://www.youtube.com/results?search_query=bts song {{s.song}}" target="_blank">點這</a></td>
           </tr>
           {% endif  %}
           {% endfor %}
@@ -35,3 +47,18 @@
        
 </body>
 </html>
+
+<script>
+  function show1() {
+    var show1 = document.getElementById('show1');
+    var hide1 = document.getElementById('hide1');
+    if (hide1.style.display === 'none') {
+          hide1.style.display = '';
+          
+    }
+    else {
+          hide1.style.display = 'none';
+          
+    }
+}
+</script>
